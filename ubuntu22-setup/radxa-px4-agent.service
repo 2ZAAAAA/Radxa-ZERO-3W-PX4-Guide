@@ -1,0 +1,19 @@
+[Unit]
+Description=Radxa PX4 Micro XRCE-DDS Agent
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+User=ubuntu
+SupplementaryGroups=dialout
+WorkingDirectory=/home/ubuntu
+ExecStartPre=/usr/bin/test -c /dev/ttyS4
+ExecStart=/bin/bash -c 'source /opt/ros/humble/setup.bash && source /home/ubuntu/ros2_px4_ws/install/setup.bash && exec MicroXRCEAgent serial --dev /dev/ttyS4 -b 115200 -v 4'
+Restart=always
+RestartSec=5
+KillSignal=SIGINT
+TimeoutStopSec=15
+
+[Install]
+WantedBy=multi-user.target
