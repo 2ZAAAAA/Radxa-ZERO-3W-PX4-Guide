@@ -1,0 +1,21 @@
+# Runtime downloads and local build output
+ubuntu22-setup/rosdep-data/
+ubuntu22-setup/ros2-apt-source_*.deb
+*.download
+__pycache__/
+# Private files and raw device exports
+*.params
+*.ulg
+*.log
+*.img
+*.img.xz
+*.pcap*
+*.exe
+**/user-data
+**/network-config
+**/user-data.before-*
+**/network-config.before-*
+**/wifi-profiles.json
+**/hotspot-prefer.json
+**/*.nmconnection
+**/known_hosts*
